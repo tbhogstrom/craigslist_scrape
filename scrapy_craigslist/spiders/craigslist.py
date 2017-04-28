@@ -26,6 +26,8 @@ class CraigslistSpider(Spider):
         item["title"] = response.css("span#titletextonly::text").extract_first()
         item["modelraw"] = response.xpath("//section/div/p/span/b/text()").extract_first()
         item["presDims"] = response.xpath("//section/div/p/span/text()").extract()
+        item["location"] = response.xpath("//section/header/nav/ul/li[1]/p/a/text()").extract()
+        item["desctext"] = response.xpath("//section/section/section/text()[2]").extract()[1]
         detName = response.xpath("//section/div/p/span/text()").extract()
         ##Take colon and blank space out of detail Detname
         details = [s.replace(': ', '') for s in detName]
