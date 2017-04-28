@@ -66,8 +66,9 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'scrapy_craigslist.pipelines.ScrapyCraigslistPipeline': 300,
+   'scrapy_craigslist.pipelines.DuplicatesPipeline': 400,
 #   'scrapy_craigslist.pipelines.JsonWriterPipeline': 300,
-   'scrapy_craigslist.pipelines.MongoDBPipeline': 100,
+   'scrapy_craigslist.pipelines.MongoDBPipeline': 500,
 }
 
 MONGODB_SERVER = "localhost"

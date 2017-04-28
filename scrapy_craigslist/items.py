@@ -16,3 +16,5 @@ class CraigslistCar(scrapy.Item):
     modelraw = scrapy.Field()
     presDims =scrapy.Field()
     detailCorp = scrapy.Field()
+    location = scrapy.Field()
+    desctext = scrapy.Field()

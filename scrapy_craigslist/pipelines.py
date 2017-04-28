@@ -49,3 +49,15 @@ class MongoDBPipeline(object):
             log.msg("Question added to MongoDB database!",
                     level=log.DEBUG, spider=spider)
         return item
+
+class DuplicatesPipeline(object):
+
+    def __init__(self):
+        self.links_seen = set()
+
+    def process_item(self, item, spider):
+        if item['link'] in self.links_seen:
+            raise DropItem("Duplicate item found: %s" % item)
+        else:
+            self.links_seen.add(item['link'])
+            return item
