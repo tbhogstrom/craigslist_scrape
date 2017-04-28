@@ -66,8 +66,14 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'scrapy_craigslist.pipelines.ScrapyCraigslistPipeline': 300,
-   'scrapy_craigslist.pipelines.JsonWriterPipeline': 300,
+#   'scrapy_craigslist.pipelines.JsonWriterPipeline': 300,
+   'scrapy_craigslist.pipelines.MongoDBPipeline': 100,
 }
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "craigslist"
+MONGODB_COLLECTION = "cars"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
